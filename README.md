@@ -14,6 +14,11 @@ only client script is the small parallax loop for the orb background.
 
 ## Getting started
 
+**Toolchain:** Node 26 and pnpm 11 (pnpm 11 requires Node ≥ 22.13). The versions are
+pinned in `package.json` — Node via the `volta` field and pnpm via `packageManager`. With
+[Volta](https://volta.sh) installed, the correct Node is selected automatically on `cd`;
+otherwise install Node 26 yourself.
+
 This project uses [pnpm](https://pnpm.io):
 
 ```bash
@@ -50,17 +55,17 @@ astro.config.mjs    # Site/base config (per deploy target) + Tailwind Vite plugi
 
 Two GitHub Actions pipelines cover staging and production. The Astro `base` switches by
 build target (see `astro.config.mjs`): staging is served from a Pages project path, so it
-needs a `/landing-page/` prefix; production is served at the Plesk domain root.
+needs a `/elemynt-landing-page/` prefix (matching the repo name); production is served at
+the Plesk domain root.
 
 ### Staging → GitHub Pages
 
 - **Workflow:** `.github/workflows/staging.yml`
 - **Trigger:** automatically on every push to `main` (also runnable manually).
-- **URL:** `https://your-username.github.io/landing-page/`
-- **One-time setup:**
-  1. Push this repo to GitHub.
-  2. Set `site` in `astro.config.mjs` to `https://your-username.github.io`.
-  3. Repo **Settings → Pages → Source → GitHub Actions**.
+- **URL:** `https://elemynt-bella.github.io/elemynt-landing-page/`
+- **One-time setup (already done for this repo):**
+  1. Repo must be public, or on a plan that allows Pages for private repos.
+  2. Repo **Settings → Pages → Source → GitHub Actions**.
 
 ### Production → Plesk (FTP)
 

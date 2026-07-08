@@ -8,10 +8,10 @@ import tailwindcss from '@tailwindcss/vite';
 const isStaging = process.env.DEPLOY_TARGET === 'staging';
 
 export default defineConfig({
-  // TODO: replace `your-username` with the GitHub account/org that hosts this
-  // repo, and confirm the production domain below.
-  site: isStaging ? 'https://your-username.github.io' : 'https://elemynt.ai',
-  base: isStaging ? '/landing-page/' : '/',
+  // TODO: confirm the production domain below.
+  site: isStaging ? 'https://elemynt-bella.github.io' : 'https://elemynt.ai',
+  // Must match the GitHub repo name (Pages serves the project at /<repo>/).
+  base: isStaging ? '/elemynt-landing-page/' : '/',
   vite: {
     plugins: [tailwindcss()],
     resolve: {

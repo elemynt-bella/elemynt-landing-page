@@ -1,0 +1,33 @@
+name: Deploy production (Plesk FTP)
+
+# Manual only — nothing reaches production without an explicit run from the
+# Actions tab (Run workflow).
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 26
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # No DEPLOY_TARGET => base '/', correct for serving at the Plesk domain root.
+      - run: pnpm build
+
+      - name: Deploy to Plesk via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
