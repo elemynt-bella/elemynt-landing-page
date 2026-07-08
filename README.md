@@ -1,10 +1,6 @@
 # Elemynt Landing Page
 
-A single-page marketing site for Elemynt, built with **Astro** and **Tailwind CSS v4**.
-The hero features an animated multi-orb mesh-gradient background with mouse parallax.
-
-Astro renders the page to static HTML at build time and ships **zero framework JS** — the
-only client script is the small parallax loop for the orb background.
+A single-page landing site for Elemynt, built with **Astro** and **Tailwind CSS v4**.
 
 ## Tech stack
 

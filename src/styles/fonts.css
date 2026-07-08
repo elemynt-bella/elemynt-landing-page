@@ -11,6 +11,17 @@
   }
 }
 
+/* Page-load entrance for the background orbs. Animates `opacity` and the
+   standalone `scale` property only — `transform`/`translate` are owned by the
+   mouse-parallax script and the centering style, so they must stay untouched.
+   No `to` block: each orb settles at its own inline opacity and scale: 1. */
+@keyframes orb-enter {
+  from {
+    opacity: 0;
+    scale: 0.55;
+  }
+}
+
 @keyframes orb-rotate {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
