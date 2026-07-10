@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       # withastro/action auto-detects pnpm, installs deps, builds, and uploads
-      # the Pages artifact. DEPLOY_TARGET=staging => base: '/landing-page/'.
+      # the Pages artifact. DEPLOY_TARGET=staging => base: '/elemynt-landing-page/'.
       - uses: withastro/action@v6
         with:
           node-version: 26
